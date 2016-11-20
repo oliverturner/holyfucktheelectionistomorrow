@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 import Animate from 'rc-animate';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import * as Actions from '../actions/Actions';
 
 import Idea from '../components/Idea';
@@ -19,7 +19,7 @@ const onHeaderClick = (action) => (event) => {
  * Again, this is because it serves to wrap the rest of our application with the Provider
  * component to make the Redux store available to the rest of the app.
  */
-const App = ({ counter, actions, ideas, choices, links }) => {
+const App = ({counter, actions, ideas, choices, links}) => {
   const currentIdea = ideas[counter];
 
   let currentLinks = [];
@@ -28,9 +28,9 @@ const App = ({ counter, actions, ideas, choices, links }) => {
     currentLinks = links[choices.topic][choices.action];
 
     currentLinks.push({
-      text: 'FUCK YEAH. NOW WHAT?',
+      text:         'FUCK YEAH. NOW WHAT?',
       stepsForward: 1,
-      class: 'idea-button--accent'
+      class:        'idea-button--accent'
     });
   }
 
@@ -66,8 +66,8 @@ const App = ({ counter, actions, ideas, choices, links }) => {
 App.propTypes = {
   counter: PropTypes.number.isRequired,
   actions: PropTypes.object.isRequired,
-  ideas: PropTypes.array.isRequired,
-  links: PropTypes.object.isRequired,
+  ideas:   PropTypes.array.isRequired,
+  links:   PropTypes.object.isRequired,
   choices: PropTypes.object.isRequired
 };
 
@@ -77,12 +77,12 @@ App.propTypes = {
  * state in this Redux application. 'counter' is a property within our store/state
  * object. By mapping it to props, we can pass it to the child component Counter.
  */
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     counter: state.counter,
-    ideas: state.ideas,
+    ideas:   state.ideas,
     choices: state.choices,
-    links: state.links
+    links:   state.links
   };
 }
 
@@ -94,7 +94,7 @@ function mapStateToProps(state) {
  *
  * More info: http://redux.js.org/docs/api/bindActionCreators.html
  */
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     actions: bindActionCreators(Actions, dispatch)
   };

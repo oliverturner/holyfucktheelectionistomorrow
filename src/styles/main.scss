@@ -47,6 +47,8 @@ a {
 
 .wrap {
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .container {
@@ -82,9 +84,7 @@ a {
 }
 
 .ideas-container {
-  position:   relative;
-  width:      100vw;
-  overflow-x: hidden;
+  position: relative;
 }
 
 .idea-intro {
@@ -110,6 +110,7 @@ a {
   @include break {
     flex-direction: row;
     flex-wrap:      wrap;
+    padding-bottom: 13em;
   }
 }
 
@@ -182,28 +183,51 @@ a {
   top:       0;
 }
 
-footer {
-  padding-top: 8em;
+.main-footer {
+  @include break {
+    position:   fixed;
+    bottom:     0;
+    width:      100%;
+    background: rgba(#000, 0.65);
+  }
+
   a {
     text-decoration: none;
   }
 }
 
-.start-over {
-  button {
-    @extend %button;
+.main-footer__content {
+  padding: 1em 0;
 
-    display:          inline-block;
-    border:           none;
-    text-transform:   uppercase;
-    background-color: #111;
-    color:            inherit;
-
-    &:hover {
-      background-color: #000;
-    }
+  @include break {
+    display: flex;
   }
 
+  p {
+    margin: 0 0 10px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.start-over {
+  @extend %button;
+
+  margin:           0 1em 0 0;
+  border:           none;
+  text-transform:   uppercase;
+  background-color: #111;
+  color:            inherit;
+
+  &:hover {
+    background-color: $main-bg-color;
+  }
+
+  @include break {
+    border: 1px solid currentColor;
+  }
 }
 
 .credit {
