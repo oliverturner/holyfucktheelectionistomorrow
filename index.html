@@ -7,8 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
-      @import url(https://fonts.googleapis.com/css?family=Biryani:400,800,900);
-
+      .idea-button,
       .start-over {
         border-radius: 3px;
         padding: .7em .5em .5em;
@@ -53,30 +52,29 @@
       }
 
       .app {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        will-change: scroll;
         position: absolute;
-        overflow-x: hidden;
-        overflow-y: scroll;
+        top: 0;
+        left: 0;
         width: 100vw;
         height: 100vh;
+        will-change: scroll;
+        overflow-x: hidden;
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
       }
 
-      .app__header {
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+      @media screen and (min-width:501px) {
+        .app__header {
+          font-size: 1.3em;
+        }
       }
 
       .app__header h1 {
-        font-weight: 900;
         display: inline-block;
         margin: 0 0 0 -.4em;
-        line-height: 1.3;
         padding: .2em .4em 0;
+        line-height: 1.3;
+        font-weight: 900;
         background-color: #00a9e0;
       }
 
@@ -89,21 +87,62 @@
         background-color: #000;
       }
 
-      @media screen and (min-width:501px) {
-        .app__header {
-          font-size: 1.3em;
-        }
-      }
-
       .app__ideas {
-        -ms-flex: 1;
-        flex: 1;
         position: relative;
       }
 
-      .app__footer {
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+      .idea-intro,
+      .idea-text {
+        font-weight: 900;
+      }
+
+      .idea-text {
+        margin: 0 0 .6em;
+        font-size: 2em;
+        line-height: 1.2;
+        outline: none;
+      }
+
+      @media screen and (min-width:501px) {
+        .idea-text {
+          font-size: 3em;
+        }
+      }
+
+      .idea-buttons {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
+      @media screen and (min-width:501px) {
+        .idea-buttons {
+          -ms-flex-direction: row;
+          flex-direction: row;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+        }
+      }
+
+      .idea-button {
+        -ms-flex: 1;
+        flex: 1;
+        margin-bottom: 1em;
+        border: none;
+        background-color: #0057b8;
+        color: #fff;
+      }
+
+      @media screen and (min-width:501px) {
+        .idea-button {
+          -ms-flex: 1 0 45%;
+          flex: 1 0 45%;
+        }
+
+        .idea-button:nth-child(even) {
+          margin-left: 1em;
+        }
       }
 
       .start-over {
@@ -122,9 +161,32 @@
         color: #fff;
       }
 
+      @font-face {
+        font-family: 'Biryani';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Biryani'), local('Biryani-Regular'), url(https://fonts.gstatic.com/s/biryani/v1/E2eZ6gDqHsQctcgNMH1j7w.ttf) format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Biryani';
+        font-style: normal;
+        font-weight: 800;
+        src: local('Biryani ExtraBold'), local('Biryani-ExtraBold'), url(https://fonts.gstatic.com/s/biryani/v1/cJ4Ij9Z_fMLiglmcqwLkfy3USBnSvpkopQaUR-2r7iU.ttf) format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Biryani';
+        font-style: normal;
+        font-weight: 900;
+        src: local('Biryani Heavy'), local('Biryani-Heavy'), url(https://fonts.gstatic.com/s/biryani/v1/zesSxRLKV_fx-Z23Oa-YNy3USBnSvpkopQaUR-2r7iU.ttf) format('truetype');
+      }
+
     </style>
     <link href="styles.css" rel="preload" as="style" onload="this.rel='stylesheet'">
     <noscript><link href="styles.css" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Biryani:400,800,900&subset=latin" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css?family=Biryani:400,800,900&subset=latin" rel="stylesheet"></noscript>
     <script>!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
 
     <!-- chrome pwa -->
@@ -169,7 +231,20 @@
         </a>
         <p>That piece of shit known as Donald Trump won the election. But that doesn't mean it's fucking over</p>
       </header>
-      <main class="app__ideas" id="root"></main>
+
+      <main class="app__ideas" id="root">
+        <!-- start: Replaced by React -->
+        <div class="container">
+          <p class="idea-intro">FIRST THINGS FIRST...</p>
+          <div class="idea-text">ARE YOU OKAY?</div>
+          <div class="idea-buttons">
+            <button class="idea-button ">I NEED A FUCKING MINUTE</button>
+            <button class="idea-button ">I'M READY TO FUCK SHIT UP</button>
+          </div>
+        </div>
+        <!-- end: Replaced by React -->
+      </main>
+
       <footer class="app__footer container">
         <a data-restart="" class="start-over" href="/">Start over</a>
         <p>clara fucking beyer started this. she's on <a class="credit" href="https://github.com/csb324" target="_blank" rel="noopener">github</a>
